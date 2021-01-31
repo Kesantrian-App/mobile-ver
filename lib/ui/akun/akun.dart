@@ -285,7 +285,7 @@ class _AkunState extends State<Akun> {
                           ),
                           Container(
                             width: MediaQuery.of(context).size.width * 0.4,
-                            height: MediaQuery.of(context).size.height * 0.21,
+                            height: MediaQuery.of(context).size.height * 0.22,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [

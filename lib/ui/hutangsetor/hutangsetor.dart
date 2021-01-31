@@ -68,7 +68,7 @@ class _HutangSetorState extends State<HutangSetor> {
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/image/bgsetor.png"),
-                  fit: BoxFit.cover),
+                  fit: BoxFit.cover,),
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50.0),
                   topRight: Radius.circular(50.0)),
@@ -206,7 +206,7 @@ class _HutangSetorState extends State<HutangSetor> {
                                                         MediaQuery.of(context)
                                                                 .size
                                                                 .height *
-                                                            0.2,
+                                                            0.3,
                                                     child: Padding(
                                                         padding: EdgeInsets.all(
                                                             15.0),

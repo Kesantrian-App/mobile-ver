@@ -278,7 +278,7 @@ class _PelanggaranState extends State<Pelanggaran> {
                     child: SizedBox(
                       width: 320,
                       height: 240,
-                      child: Image.asset("assets/image/mountain.jpg", fit: BoxFit.cover),
+                      child: Image.asset("assets/image/bgpelanggaran.jpg", fit: BoxFit.cover),
                     ),
                   ),
                 ),
