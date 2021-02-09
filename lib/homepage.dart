@@ -24,11 +24,13 @@ class MyApp extends StatelessWidget {
           // PILIHAN SANTRI
           '/setoran': (context) => Setoran(),
           '/setoranbaru': (context) => SetoranBaru(),
+          '/setoranhistory': (context) => SetoranHistory(),
           '/izingadget': (context) => IzinGadget(),
           '/izinlaptop': (context) => IzinLaptop(),
           '/izinhp': (context) => IzinHandphone(),
           '/hutangsetor': (context) => HutangSetor(),
           '/pelanggaran': (context) => Pelanggaran(),
+          '/laundry': (context) => Laundry(),
         });
   }
 }

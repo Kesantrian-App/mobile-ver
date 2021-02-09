@@ -261,12 +261,13 @@ class _IzinLaptopState extends State<IzinLaptop> {
                               onPressed: () {},
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
-                              child: Text("Pinjam Laptop",
+                              child: Text("PINJAM LAPTOP",
                                   style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 12,
+                                      letterSpacing: 1.5,
                                       color: Colors.white,
                                       fontFamily: "Avenir",
-                                      fontWeight: FontWeight.w500)),
+                                      fontWeight: FontWeight.bold)),
                               elevation: 0,
                               fillColor: HexColor("#2ECC71"),
                             ),

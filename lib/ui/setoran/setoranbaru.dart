@@ -6,581 +6,393 @@ class SetoranBaru extends StatefulWidget {
 }
 
 class _SetoranBaruState extends State<SetoranBaru> {
-  BorderRadiusGeometry radiusBawah = BorderRadius.only(
-    bottomLeft: Radius.circular(50.0),
-    bottomRight: Radius.circular(50.0),
-  );
+
+  String _valSurahAwal;
+  List _listSurahAwal = [
+    "An-Naas",
+    "Al-Falaq",
+    "Al-Ikhlas",
+    "Al-Lahab",
+    "An-Nasr"
+  ];
+
+  TextEditingController ayatAwal = TextEditingController();
+  TextEditingController ayatAkhir = TextEditingController();
+  String nilaiAyat = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            color: Colors.white,),
+          color: Colors.white
+        ),
         child: Stack(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 1,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                      image: AssetImage("assets/image/bgsetor.png"),
-                      fit: BoxFit.cover)),
-              child: SingleChildScrollView(
-                  child: Column(
-                children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.13),
-                  SetoranBackup1(),
-                  SetoranBackup2(),
-                  SetoranBackup3(),
-                  SetoranBackup4(),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.005),
-                ],
-              )),
+            Positioned(
+              bottom: -45,
+              left: 0,
+              child: Container(
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/image/bglaptopui.png")
+                      )
+                    ),
+                  ),
             ),
-            Container(
-                width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 0.12,
-                decoration: BoxDecoration(color: HexColor("#2ECC71"), borderRadius: radiusBawah),
-                padding: EdgeInsets.only(top: 40),
-                child: Stack(
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FlatButton (
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 5.0),
+                          child: Icon(Icons.arrow_back_ios, color: HexColor("#439f6a"), size: 15),
+                        ),
+                        shape: CircleBorder(),
+                        color: HexColor("#2ECC71").withOpacity(0.2),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5.0),
+                              child: Icon(Icons.add_circle, color: HexColor("2ECC71")),
+                            ),
+                            Text("SETORAN ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: HexColor("2ECC71"), fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                            Text("BARU", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: HexColor("2ECC71"), fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 65.0),
+                        child: Text("tes", style: TextStyle(color: Colors.white))
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 1,
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      alignment: Alignment.center,
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.03),
+                    // Surat
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      child: Text("Pilih Surah",
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontFamily: "Noto",
+                                fontWeight: FontWeight.w700)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        padding: EdgeInsets.only(left: 20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border:
+                              Border.all(color: Colors.grey, width: 1),
+                        ),
+                        child: DropdownButton(
+                          underline: SizedBox(),
+                          isExpanded: true,
+                          hint: Text("Surat Mulai",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                  fontFamily: "Avenir",
+                                  fontWeight: FontWeight.w500)),
+                          iconSize: 30,
+                          value: _valSurahAwal,
+                          items: _listSurahAwal.map((value) {
+                            return DropdownMenuItem(
+                              child: Container(
+                                width: MediaQuery.of(context).size.width *
+                                    0.32,
+                                child: Text(value),
+                              ),
+                              value: value,
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() {
+                              _valSurahAwal = value;
+                            });
+                          },
+                        ),
+                      )
+                    ),
+                    // Ayat
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      child: Text("Dari Ayat",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontFamily: "Noto",
+                                    fontWeight: FontWeight.w700)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("History ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold)),
-                          Text("Setoran", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500)),
+                        children: <Widget>[
+                          Container(
+                            width: 50,
+                            child: Theme(
+                              data: new ThemeData(
+                                primaryColor: Colors.black,
+                                primaryColorDark: Colors.black,
+                              ),
+                              child: TextFormField(
+                                textAlign: TextAlign.center,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    counterText: ""),
+                                maxLength: 2,
+                                controller: ayatAwal,
+                                onChanged: (text) {
+                                  nilaiAyat = text;
+                                },
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                              width:
+                                  MediaQuery.of(context).size.width * 0.05),
+                          Text("Sampai",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey[700],
+                                  fontFamily: "Avenir",
+                                  fontWeight: FontWeight.w500)),
+                          SizedBox(
+                              width:
+                                  MediaQuery.of(context).size.width * 0.05),
+                          Container(
+                            width: 50,
+                            child: Theme(
+                              data: new ThemeData(
+                                primaryColor: Colors.black,
+                                primaryColorDark: Colors.black,
+                              ),
+                              child: TextFormField(
+                                textAlign: TextAlign.center,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    counterText: ""),
+                                maxLength: 2,
+                                controller: ayatAkhir,
+                                onChanged: (text) {
+                                  nilaiAyat = text;
+                                },
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                    Positioned(
-                      right: 5,
-                      child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.05,
-                          child: FlatButton(
-                              child: Icon(
-                                Icons.close,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              shape: CircleBorder(),
-                              color: Colors.grey[700].withOpacity(0.2))),
+                    // Pilih Rekaman
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      child: Text("Pilih Jenis Upload",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontFamily: "Noto",
+                                    fontWeight: FontWeight.w700)),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      child: OutlineButton(
+                        onPressed: () {},
+                        highlightedBorderColor: HexColor("#2ECC71"),
+                        child: Image.asset(
+                          "assets/icons/record.png",
+                          width: 50,
+                        ),
+                        shape: CircleBorder(),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 10.0),
+                      child: Text("Atau",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey[700],
+                                    fontFamily: "Avenir",
+                                    fontWeight: FontWeight.w500)),
+                    ),
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01),
+                    OutlineButton(
+                      onPressed: () {},
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                      padding: const EdgeInsets.all(0.0),
+                      highlightedBorderColor: HexColor("#2ECC71"),
+                      child: Ink(
+                        decoration: const BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
+                            color: Colors.white),
+                        child: Container(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            height: MediaQuery.of(context).size.height * 0.18,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.grey[350], width: 1),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                            ),
+                            constraints: const BoxConstraints(
+                                minWidth: 88.0,
+                                minHeight:
+                                    36.0), // min sizes for Material buttons
+                            alignment: Alignment.center,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height *
+                                            0.01),
+                                Image.asset("assets/icons/upload.png",
+                                    width: MediaQuery.of(context).size.width *
+                                        0.16),
+                                SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height *
+                                            0.01),
+                                Center(
+                                  child: Text("Upload File Rekaman",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey[700],
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.w500)),
+                                ),
+                                SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height *
+                                            0.01),
+                                Row(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Jenis Audio yang diperbolehkan : ",
+                                        style: TextStyle(
+                                            fontSize: 9,
+                                            fontFamily: "Avenir",
+                                            fontWeight: FontWeight.w500)),
+                                    Text(".mp3, .flac, .wav",
+                                        style: TextStyle(
+                                            fontSize: 9,
+                                            color: Colors.grey[700],
+                                            fontFamily: "Avenir",
+                                            fontWeight: FontWeight.w500)),
+                                  ],
+                                )
+                              ],
+                            )),
+                      ),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 5.0),
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.3),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                  offset: Offset(1, 2),
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(20.0)
+                            ),
+                            child: RawMaterialButton(
+                              onPressed: () {},
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: Text("SIMPAN",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: HexColor("#439f6a"),
+                                      fontFamily: "Avenir",
+                                      fontWeight: FontWeight.bold)),
+                              elevation: 0,
+                              fillColor: Colors.white,
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 5.0),
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.3),
+                                  spreadRadius: 1,
+                                  blurRadius: 5,
+                                  offset: Offset(1, 2),
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(20.0)
+                            ),
+                            child: RawMaterialButton(
+                              onPressed: () {},
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: Text("SETOR",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontFamily: "Avenir",
+                                      fontWeight: FontWeight.bold)),
+                              elevation: 0,
+                              fillColor: HexColor("#2ECC71"),
+                            ),
+                          ),
+                        ],
+                      ),
                     )
                   ],
-                )),
-          ],
+                ),
+              ],
+            ),
+          ]
         ),
       ),
     );
-  }
-}
-
-class SetoranBackup1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
-        width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.25,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20.0),
-              bottomLeft: Radius.circular(20.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 8,
-              offset: Offset(2, 5),
-            ),
-          ],
-        ),
-        child: Stack(children: [
-          Positioned(
-              top: -15,
-              left: -15,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.075,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(100.0),
-                        topRight: Radius.circular(100.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ))),
-          Positioned(
-              bottom: -120,
-              right: -100,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.27,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(300.0),
-                  ))),
-          Positioned(
-            top: 10,
-            left: 10,
-            child: Text("10",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Avenir",
-                    color: HexColor("#2ECC71"),
-                    fontWeight: FontWeight.bold)),
-          ),
-          Positioned(
-            top: 15,
-            right: 20,
-            child: Text("Minggu, 10/01/2021",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: "Avenir",
-                    color: Colors.grey[400],
-                    fontWeight: FontWeight.bold)),
-          ),
-          Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.3,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/icons/setoricon.png"))),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Setor Surah Al-Ma'arij",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 2),
-                    Text("Ayat 1-10",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    Divider(),
-                    Text("Pendamping Ust. Fathi M. S.",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 10),
-                    Text("TAHUN AJARAN 2020/2021",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 8,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[400]),
-                        textAlign: TextAlign.end),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ]));
-  }
-}
-
-class SetoranBackup2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
-        width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.25,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20.0),
-              bottomLeft: Radius.circular(20.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 8,
-              offset: Offset(2, 5),
-            ),
-          ],
-        ),
-        child: Stack(children: [
-          Positioned(
-              top: -15,
-              left: -15,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.075,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(100.0),
-                        topRight: Radius.circular(100.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ))),
-          Positioned(
-              bottom: -120,
-              right: -100,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.27,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(300.0),
-                  ))),
-          Positioned(
-            top: 10,
-            left: 10,
-            child: Text("9",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Avenir",
-                    color: HexColor("#2ECC71"),
-                    fontWeight: FontWeight.bold)),
-          ),
-          Positioned(
-            top: 15,
-            right: 20,
-            child: Text("Minggu, 10/01/2021",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: "Avenir",
-                    color: Colors.grey[400],
-                    fontWeight: FontWeight.bold)),
-          ),
-          Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.3,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/icons/setoricon.png"))),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Setor Surah An-Najm",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 2),
-                    Text("Ayat 20-24",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    Divider(),
-                    Text("Pendamping Ust. Abdullah Said M.",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 10),
-                    Text("TAHUN AJARAN 2020/2021",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 8,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[400]),
-                        textAlign: TextAlign.end),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ]));
-  }
-}
-
-class SetoranBackup3 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
-        width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.25,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20.0),
-              bottomLeft: Radius.circular(20.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 8,
-              offset: Offset(2, 5),
-            ),
-          ],
-        ),
-        child: Stack(children: [
-          Positioned(
-              top: -15,
-              left: -15,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.075,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(100.0),
-                        topRight: Radius.circular(100.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ))),
-          Positioned(
-              bottom: -120,
-              right: -100,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.27,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(300.0),
-                  ))),
-          Positioned(
-            top: 10,
-            left: 10,
-            child: Text("8",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Avenir",
-                    color: HexColor("#2ECC71"),
-                    fontWeight: FontWeight.bold)),
-          ),
-          Positioned(
-            top: 15,
-            right: 20,
-            child: Text("Minggu, 10/01/2021",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: "Avenir",
-                    color: Colors.grey[400],
-                    fontWeight: FontWeight.bold)),
-          ),
-          Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.3,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/icons/setoricon.png"))),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Setor Surah An-Nas",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 2),
-                    Text("Ayat 1-3",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    Divider(),
-                    Text("Pendamping Ust. Naufal Farros",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 10),
-                    Text("TAHUN AJARAN 2020/2021",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 8,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[400]),
-                        textAlign: TextAlign.end),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ]));
-  }
-}
-
-class SetoranBackup4 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
-        width: MediaQuery.of(context).size.width * 1,
-        height: MediaQuery.of(context).size.height * 0.25,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20.0),
-              bottomLeft: Radius.circular(20.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 8,
-              offset: Offset(2, 5),
-            ),
-          ],
-        ),
-        child: Stack(children: [
-          Positioned(
-              top: -15,
-              left: -15,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.075,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(100.0),
-                        topRight: Radius.circular(100.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
-                  ))),
-          Positioned(
-              bottom: -120,
-              right: -100,
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.27,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(300.0),
-                  ))),
-          Positioned(
-            top: 10,
-            left: 10,
-            child: Text("7",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: "Avenir",
-                    color: HexColor("#2ECC71"),
-                    fontWeight: FontWeight.bold)),
-          ),
-          Positioned(
-            top: 15,
-            right: 20,
-            child: Text("Minggu, 10/01/2021",
-                style: TextStyle(
-                    fontSize: 12,
-                    fontFamily: "Avenir",
-                    color: Colors.grey[400],
-                    fontWeight: FontWeight.bold)),
-          ),
-          Row(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.3,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/icons/setoricon.png"))),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.height * 0.3,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Setor Surah An-Najm",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 2),
-                    Text("Ayat 20-24",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            color: HexColor("#2ECC71"))),
-                    Divider(),
-                    Text("Pendamping Ust. Abdullah Said M.",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color: HexColor("#2ECC71"))),
-                    SizedBox(height: 10),
-                    Text("TAHUN AJARAN 2020/2021",
-                        style: TextStyle(
-                            fontFamily: "Avenir",
-                            fontSize: 8,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[400]),
-                        textAlign: TextAlign.end),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ]));
   }
 }

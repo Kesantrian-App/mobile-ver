@@ -167,10 +167,22 @@ class _LaptopState extends State<Laptop> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 50.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: HexColor("2ECC71").withOpacity(0.2),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: Offset(1, 8),
+                      ),
+                    ],
+                  ),
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/izinlaptop');
                     },
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100.0)),
                     padding: EdgeInsets.all(0.0),
@@ -294,6 +306,17 @@ class _HandphoneState extends State<Handphone> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 50.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: HexColor("2ECC71").withOpacity(0.2),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: Offset(1, 8),
+                      ),
+                    ],
+                  ),
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, '/izinhp');
@@ -301,6 +324,7 @@ class _HandphoneState extends State<Handphone> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100.0)),
                     padding: EdgeInsets.all(0.0),
+                    elevation: 0,
                     child: Ink(
                       decoration: BoxDecoration(
                           gradient: LinearGradient(

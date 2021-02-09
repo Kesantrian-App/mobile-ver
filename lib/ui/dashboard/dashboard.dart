@@ -345,7 +345,9 @@ class _DashboardState extends State<Dashboard> {
                       child: Column(
                         children: [
                           RaisedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/laundry');
+                              },
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
                               padding: EdgeInsets.all(0.0),
