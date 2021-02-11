@@ -247,76 +247,78 @@ class _SetoranBaruState extends State<SetoranBaru> {
                     ),
                     SizedBox(
                         height: MediaQuery.of(context).size.height * 0.01),
-                    OutlineButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
-                      padding: const EdgeInsets.all(0.0),
-                      highlightedBorderColor: HexColor("#2ECC71"),
-                      child: Ink(
-                        decoration: const BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            color: Colors.white),
-                        child: Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            height: MediaQuery.of(context).size.height * 0.18,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: Colors.grey[350], width: 1),
+                    FDottedLine(
+                      color: HexColor("2ECC71"),
+                      corner: FDottedLineCorner.all(20.0),
+                      dottedLength: 10.0,
+                      child: FlatButton(
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0)),
+                        padding: const EdgeInsets.all(0.0),
+                        child: Ink(
+                          decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0)),
-                            ),
-                            constraints: const BoxConstraints(
-                                minWidth: 88.0,
-                                minHeight:
-                                    36.0), // min sizes for Material buttons
-                            alignment: Alignment.center,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                            0.01),
-                                Image.asset("assets/icons/upload.png",
-                                    width: MediaQuery.of(context).size.width *
-                                        0.16),
-                                SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                            0.01),
-                                Center(
-                                  child: Text("Upload File Rekaman",
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey[700],
-                                          fontFamily: "Avenir",
-                                          fontWeight: FontWeight.w500)),
-                                ),
-                                SizedBox(
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                            0.01),
-                                Row(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("Jenis Audio yang diperbolehkan : ",
+                              color: Colors.white),
+                          child: Container(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              height: MediaQuery.of(context).size.height * 0.18,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20.0)),
+                              ),
+                              constraints: const BoxConstraints(
+                                  minWidth: 88.0,
+                                  minHeight:
+                                      36.0), // min sizes for Material buttons
+                              alignment: Alignment.center,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.01),
+                                  Image.asset("assets/icons/upload.png",
+                                      width: MediaQuery.of(context).size.width *
+                                          0.16),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.01),
+                                  Center(
+                                    child: Text("Upload File Rekaman",
                                         style: TextStyle(
-                                            fontSize: 9,
-                                            fontFamily: "Avenir",
-                                            fontWeight: FontWeight.w500)),
-                                    Text(".mp3, .flac, .wav",
-                                        style: TextStyle(
-                                            fontSize: 9,
+                                            fontSize: 12,
                                             color: Colors.grey[700],
                                             fontFamily: "Avenir",
                                             fontWeight: FontWeight.w500)),
-                                  ],
-                                )
-                              ],
-                            )),
+                                  ),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.01),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Jenis Audio yang diperbolehkan : ",
+                                          style: TextStyle(
+                                              fontSize: 9,
+                                              fontFamily: "Avenir",
+                                              fontWeight: FontWeight.w500)),
+                                      Text(".mp3, .flac, .wav",
+                                          style: TextStyle(
+                                              fontSize: 9,
+                                              color: Colors.grey[700],
+                                              fontFamily: "Avenir",
+                                              fontWeight: FontWeight.w500)),
+                                    ],
+                                  )
+                                ],
+                              )),
+                        ),
                       ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
@@ -370,7 +372,55 @@ class _SetoranBaruState extends State<SetoranBaru> {
                               borderRadius: BorderRadius.circular(20.0)
                             ),
                             child: RawMaterialButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                NAlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: MediaQuery.of(context).size.width * 0.2,
+                                        height: MediaQuery.of(context).size.height * 0.15,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/icons/success.png"),
+                                          )
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  content: Text("BERHASIL SETORAN!", style: TextStyle(
+                                    fontSize: 16, color: HexColor("2ECC71"), fontFamily: "Avenir", fontWeight: FontWeight.w700),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  backgroundColor: Colors.black.withOpacity(0.1),
+                                  blur: 2,
+                                  actions: <Widget>[
+                                      Container(
+                                        width: MediaQuery.of(context).size.width * 0.7,
+                                        height: MediaQuery.of(context).size.width * 0.13,
+                                          child: Container(
+                                          margin: EdgeInsets.only(left: 30.0, right: 30.0, top: 5.0, bottom: 25.0),
+                                          child: RawMaterialButton(
+                                            onPressed: () {
+                                              Navigator.of(context, rootNavigator: true).pop('dialog');
+                                            },
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(50.0)),
+                                            child: Text("KEMBALI",
+                                                style: TextStyle(
+                                                    letterSpacing: 1,
+                                                    fontSize: 12,
+                                                    color: Colors.white,
+                                                    fontFamily: "Avenir",
+                                                    fontWeight: FontWeight.w500)),
+                                            elevation: 0,
+                                            fillColor: HexColor("#2ECC71"),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                ).show(context);
+                              },
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
                               child: Text("SETOR",

@@ -19,7 +19,6 @@ class _DashboardState extends State<Dashboard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.69,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -57,32 +56,70 @@ class _DashboardState extends State<Dashboard> {
                     ],
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
+                // ProfileButton(),
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => Akun()),
+                //     );
+                //   },
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width * 0.18,
+                //     height: MediaQuery.of(context).size.height * 0.1,
+                //     decoration: BoxDecoration(
+                //       border: Border.all(color: HexColor("#2ecc71"), width: 3),
+                //       borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                //     ),
+                //     padding: EdgeInsets.all(3.0),
+                //     child: Container(
+                //       decoration: BoxDecoration(
+                //         image: DecorationImage(
+                //             fit: BoxFit.cover,
+                //             image: AssetImage("assets/image/akun2.jpg")),
+                //         borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                //         color: Colors.redAccent,
+                //       ),
+                //     ),
+                //   ),
+                // )
+                BouncingWidget(
+                  duration: Duration(milliseconds: 100),
+                  scaleFactor: 1,
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Akun()),
                     );
                   },
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 0.18,
+                    width: MediaQuery.of(context).size.width * 0.2,
                     height: MediaQuery.of(context).size.height * 0.1,
                     decoration: BoxDecoration(
                       border: Border.all(color: HexColor("#2ecc71"), width: 3),
-                      borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                      shape: BoxShape.circle,
                     ),
                     padding: EdgeInsets.all(3.0),
                     child: Container(
                       decoration: BoxDecoration(
+                        shape: BoxShape.circle,
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: AssetImage("assets/image/akun2.jpg")),
-                        borderRadius: BorderRadius.all(Radius.circular(300.0)),
                         color: Colors.redAccent,
                       ),
                     ),
                   ),
-                )
+                ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //     image: DecorationImage(
+                //         fit: BoxFit.cover,
+                //         image: AssetImage("assets/image/akun2.jpg")),
+                //     borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                //     color: Colors.redAccent,
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -395,60 +432,60 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     // LAPORAN MURID
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      margin: EdgeInsets.only(right: 10),
-                      child: Column(
-                        children: [
-                          RaisedButton(
-                              onPressed: () {},
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: EdgeInsets.all(0.0),
-                              elevation: 5.0,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    "assets/icons/laporan.png"))),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          SizedBox(height: 15),
-                          Text(
-                            "Laporan Murid",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Avenir",
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ),
+                    // Container(
+                    //   width: MediaQuery.of(context).size.width * 0.3,
+                    //   height: MediaQuery.of(context).size.width * 0.4,
+                    //   margin: EdgeInsets.only(right: 10),
+                    //   child: Column(
+                    //     children: [
+                    //       RaisedButton(
+                    //           onPressed: () {},
+                    //           shape: RoundedRectangleBorder(
+                    //               borderRadius: BorderRadius.circular(20.0)),
+                    //           padding: EdgeInsets.all(0.0),
+                    //           elevation: 5.0,
+                    //           child: Ink(
+                    //             decoration: BoxDecoration(
+                    //                 color: Colors.white,
+                    //                 borderRadius: BorderRadius.circular(20)),
+                    //             child: Container(
+                    //               width:
+                    //                   MediaQuery.of(context).size.width * 0.25,
+                    //               height:
+                    //                   MediaQuery.of(context).size.width * 0.25,
+                    //               child: Column(
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 children: [
+                    //                   Container(
+                    //                     width:
+                    //                         MediaQuery.of(context).size.width *
+                    //                             0.18,
+                    //                     height:
+                    //                         MediaQuery.of(context).size.width *
+                    //                             0.18,
+                    //                     decoration: BoxDecoration(
+                    //                         image: DecorationImage(
+                    //                             fit: BoxFit.cover,
+                    //                             image: AssetImage(
+                    //                                 "assets/icons/laporan.png"))),
+                    //                   )
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //           )),
+                    //       SizedBox(height: 15),
+                    //       Text(
+                    //         "Laporan Murid",
+                    //         style: TextStyle(
+                    //             color: Colors.white,
+                    //             fontFamily: "Avenir",
+                    //             fontSize: 12,
+                    //             fontWeight: FontWeight.w500),
+                    //         textAlign: TextAlign.center,
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ],
@@ -457,5 +494,84 @@ class _DashboardState extends State<Dashboard> {
         ]),
       ),
     );
+  }
+}
+
+class ProfileButton extends StatefulWidget {
+  @override
+  _ProfileButtonState createState() => _ProfileButtonState();
+}
+
+class _ProfileButtonState extends State<ProfileButton> with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+  double scale;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+      lowerBound: 0.0,
+      upperBound: 0.1,
+    );
+    _animationController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double scale = 1 - _animationController.value;
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Akun()),
+        );
+      },
+      onTapUp: _onTapUp,
+      onTapDown: _onTapDown,
+      onLongPress: () {
+        Fluttertoast.showToast(
+          msg: "Pengaturan Profil",
+          textColor: Colors.white,
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: HexColor('#2ECC71').withOpacity(0.8)
+        );
+      },
+      child: Transform.scale(
+        scale: scale,
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.18,
+          height: MediaQuery.of(context).size.height * 0.1,
+          decoration: BoxDecoration(
+            border: Border.all(color: HexColor("#2ecc71"), width: 3),
+            borderRadius: BorderRadius.all(Radius.circular(300.0)),
+          ),
+          padding: EdgeInsets.all(3.0),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage("assets/image/akun2.jpg")),
+              borderRadius: BorderRadius.all(Radius.circular(300.0)),
+              color: Colors.redAccent,
+            ),
+          ),
+        ),
+      )
+    );
+  }
+
+  void _onTapDown(TapDownDetails details) {
+    _animationController.forward();
+  }
+
+  void _onTapUp(TapUpDetails details) {
+    _animationController.reverse();
   }
 }

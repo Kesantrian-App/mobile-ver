@@ -88,8 +88,11 @@ class _SetoranHistoryState extends State<SetoranHistory> {
 class SetoranBackup1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+        margin: EdgeInsets.symmetric(vertical: queryData.size.height / 30.0, horizontal: queryData.size.width / 20),
         width: MediaQuery.of(context).size.width * 1,
         height: MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
@@ -213,8 +216,11 @@ class SetoranBackup1 extends StatelessWidget {
 class SetoranBackup2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+        margin: EdgeInsets.symmetric(vertical: queryData.size.height / 30.0, horizontal: queryData.size.width / 20),
         width: MediaQuery.of(context).size.width * 1,
         height: MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
@@ -338,8 +344,11 @@ class SetoranBackup2 extends StatelessWidget {
 class SetoranBackup3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+        margin: EdgeInsets.symmetric(vertical: queryData.size.height / 30.0, horizontal: queryData.size.width / 20),
         width: MediaQuery.of(context).size.width * 1,
         height: MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(
@@ -463,8 +472,11 @@ class SetoranBackup3 extends StatelessWidget {
 class SetoranBackup4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20),
+        margin: EdgeInsets.symmetric(vertical: queryData.size.height / 30.0, horizontal: queryData.size.width / 20),
         width: MediaQuery.of(context).size.width * 1,
         height: MediaQuery.of(context).size.height * 0.25,
         decoration: BoxDecoration(

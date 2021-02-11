@@ -62,12 +62,15 @@ class _IzinGadgetState extends State<IzinGadget> {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return Scaffold(
       body: buildPageView(),
       extendBody: true,
       bottomNavigationBar: 
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 90, vertical: 45.0),
+          margin: EdgeInsets.symmetric(horizontal: queryData.size.width / 8, vertical: 45.0),
           padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -87,7 +90,7 @@ class _IzinGadgetState extends State<IzinGadget> {
                   activeColor: Colors.white,
                   color: HexColor("2ECC71"),
                   iconSize: 24,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                  padding: EdgeInsets.symmetric(horizontal: queryData.size.width / 20, vertical: 5),
                   duration: Duration(milliseconds: 800),
                   tabBackgroundColor: HexColor("2ECC71"),
                   tabs: [
@@ -120,6 +123,9 @@ class Laptop extends StatefulWidget {
 class _LaptopState extends State<Laptop> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -155,15 +161,16 @@ class _LaptopState extends State<Laptop> {
                   child: RichText(
                     text: TextSpan(
                       text: 'Selamat Datang di ',
-                      style: TextStyle(fontSize: 20, fontFamily: "Noto", color: Colors.grey[900], fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: queryData.size.width / 20, fontFamily: "Noto", color: Colors.grey[900], fontWeight: FontWeight.bold),
                       children: <TextSpan>[
                         TextSpan(text: 'Perizinan Laptop', style: TextStyle(fontWeight: FontWeight.w500)),
                       ],
                     ),
+                    textAlign: TextAlign.center,
                   )
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                Text("Last borrowed: Sabtu, 20 Januari 2021", style: TextStyle(fontSize: 12, fontFamily: "Noto", color: Colors.grey, fontWeight: FontWeight.w500)),
+                Text("Last borrowed: Sabtu, 20 Januari 2021", style: TextStyle(fontSize: queryData.size.width / 30, fontFamily: "Noto", color: Colors.grey, fontWeight: FontWeight.w500)),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 50.0),
@@ -259,6 +266,9 @@ class Handphone extends StatefulWidget {
 class _HandphoneState extends State<Handphone> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+    
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -290,19 +300,22 @@ class _HandphoneState extends State<Handphone> {
                     )
                   ),
                 ),
-                Center( 
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: queryData.size.width / 20),
+                  alignment: Alignment.center,
                   child: RichText(
                     text: TextSpan(
                       text: 'Selamat Datang di ',
-                      style: TextStyle(fontSize: 20, fontFamily: "Noto", color: Colors.grey[900], fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: queryData.size.width / 20, fontFamily: "Noto", color: Colors.grey[900], fontWeight: FontWeight.bold),
                       children: <TextSpan>[
                         TextSpan(text: 'Perizinan Handphone', style: TextStyle(fontWeight: FontWeight.w500)),
                       ],
                     ),
+                    textAlign: TextAlign.center,
                   )
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                Text("Last borrowed: Sabtu, 20 Januari 2021", style: TextStyle(fontSize: 12, fontFamily: "Noto", color: Colors.grey, fontWeight: FontWeight.w500)),
+                Text("Last borrowed: Sabtu, 20 Januari 2021", style: TextStyle(fontSize: queryData.size.width / 30, fontFamily: "Noto", color: Colors.grey, fontWeight: FontWeight.w500)),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 50.0),

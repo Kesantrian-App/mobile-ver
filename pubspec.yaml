@@ -31,7 +31,11 @@ dependencies:
   sliding_up_panel: ^1.0.2
   google_nav_bar: ^3.2.0
   percent_indicator: ^2.1.9+1
-
+  fdottedline: ^1.0.1
+  ndialog: ^3.2.1
+  fluttertoast: ^7.1.6
+  bouncing_widget: ^1.2.0
+  flutter_screenutil: ^4.0.2+3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
