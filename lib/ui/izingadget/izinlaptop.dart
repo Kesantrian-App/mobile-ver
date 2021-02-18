@@ -98,9 +98,10 @@ class _IzinLaptopState extends State<IzinLaptop> {
                           ],
                         ),
                       ),
-                      Positioned(
-                        right: 0,
-                        bottom: 6,
+                      Container(
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        alignment: Alignment.centerRight,
                         child: FlatButton(
                           splashColor: Colors.transparent,
                           color: Colors.grey[700].withOpacity(0.2),
@@ -111,7 +112,7 @@ class _IzinLaptopState extends State<IzinLaptop> {
                           child: Icon(Icons.close_rounded, color: Colors.white),
                           shape: CircleBorder(),
                         ),
-                      )
+                      ),
                     ],
                   )),
               Container(

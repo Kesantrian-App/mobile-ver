@@ -8,6 +8,9 @@ class HutangSetor extends StatefulWidget {
 class _HutangSetorState extends State<HutangSetor> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return Scaffold(
       body: Stack(children: [
         Column(
@@ -20,38 +23,34 @@ class _HutangSetorState extends State<HutangSetor> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomLeft,
                         colors: [HexColor("#2ECC71"), HexColor("#82caa0")])),
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.only(top: queryData.size.height/25),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Container(
-                            width: MediaQuery.of(context).size.width * 0.1,
-                            height: MediaQuery.of(context).size.height * 0.1,
-                            child: FlatButton(
-                              child: Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              shape: CircleBorder(),
-                            )),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          height: MediaQuery.of(context).size.height * 0.1,
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Hutang Hafalan",
-                            style: TextStyle(
-                                fontFamily: "Avenir",
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                        Padding(
+                          padding: EdgeInsets.only(top: queryData.size.width/50.0),
+                          child: FlatButton(
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.green[800].withOpacity(0.3),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
+                            shape: CircleBorder(),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 5.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("HUTANG ", style: TextStyle(fontSize: 20, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                                Text("HAFALAN", style: TextStyle(fontSize: 20, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                            ],
                           ),
                         ),
                       ],
@@ -70,8 +69,8 @@ class _HutangSetorState extends State<HutangSetor> {
                   image: AssetImage("assets/image/bgsetor.png"),
                   fit: BoxFit.cover,),
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50.0),
-                  topRight: Radius.circular(50.0)),
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0)),
             ),
             alignment: Alignment.topCenter,
             child: SingleChildScrollView(
@@ -185,7 +184,7 @@ class _HutangSetorState extends State<HutangSetor> {
                                       ]),
                                   Container(
                                     margin: EdgeInsets.symmetric(
-                                        horizontal: 120, vertical: 10),
+                                        horizontal: queryData.size.width/15, vertical: queryData.size.height/100),
                                     child: RawMaterialButton(
                                       onPressed: () {
                                         showDialog(

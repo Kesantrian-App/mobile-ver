@@ -42,42 +42,84 @@ class _SetoranHistoryState extends State<SetoranHistory> {
             Container(
                 width: MediaQuery.of(context).size.width * 1,
                 height: MediaQuery.of(context).size.height * 0.12,
-                decoration: BoxDecoration(color: HexColor("#2ECC71"), borderRadius: radiusBawah),
+                decoration: BoxDecoration(
+                  color: HexColor("#2ECC71"),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30.0),
+                    bottomRight: Radius.circular(30.0)
+                  ),
+                ),
                 padding: EdgeInsets.only(top: 40),
-                child: Stack(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 1,
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      alignment: Alignment.center,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("History ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold)),
-                          Text("Setoran", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500)),
-                        ],
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("HISTORY ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                            Text("SETORAN", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                          ],
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      right: 5,
-                      child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.05,
-                          child: FlatButton(
-                              child: Icon(
-                                Icons.close,
-                                color: Colors.white,
-                                size: 30,
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              shape: CircleBorder(),
-                              color: Colors.grey[700].withOpacity(0.2))),
-                    )
-                  ],
-                )),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        alignment: Alignment.centerRight,
+                        child: FlatButton(
+                          splashColor: Colors.transparent,
+                          color: Colors.grey[700].withOpacity(0.2),
+                          highlightColor: Colors.grey[700].withOpacity(0.4),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.close_rounded, color: Colors.white),
+                          shape: CircleBorder(),
+                        ),
+                      ),
+                    ],
+                  )),
+            // Container(
+            //     width: MediaQuery.of(context).size.width * 1,
+            //     height: MediaQuery.of(context).size.height * 0.12,
+            //     decoration: BoxDecoration(color: HexColor("#2ECC71"), borderRadius: radiusBawah),
+            //     padding: EdgeInsets.only(top: 40),
+            //     child: Stack(
+            //       children: [
+            //         Container(
+            //           width: MediaQuery.of(context).size.width * 1,
+            //           height: MediaQuery.of(context).size.height * 0.05,
+            //           alignment: Alignment.center,
+            //           child: Row(
+            //             crossAxisAlignment: CrossAxisAlignment.center,
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               Text("History ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold)),
+            //               Text("Setoran", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500)),
+            //             ],
+            //           ),
+            //         ),
+            //         Positioned(
+            //           right: 5,
+            //           child: Container(
+            //               width: MediaQuery.of(context).size.width * 0.15,
+            //               height: MediaQuery.of(context).size.height * 0.05,
+            //               child: FlatButton(
+            //                   child: Icon(
+            //                     Icons.close,
+            //                     color: Colors.white,
+            //                     size: 30,
+            //                   ),
+            //                   onPressed: () {
+            //                     Navigator.pop(context);
+            //                   },
+            //                   shape: CircleBorder(),
+            //                   color: Colors.grey[700].withOpacity(0.2))),
+            //         )
+            //       ],
+            //     )),
           ],
         ),
       ),

@@ -8,6 +8,9 @@ class Pelanggaran extends StatefulWidget {
 class _PelanggaranState extends State<Pelanggaran> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return Scaffold(
       body: Column(
         children: [
@@ -303,38 +306,38 @@ class _PelanggaranState extends State<Pelanggaran> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.symmetric(vertical: queryData.size.height/40.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                              width: MediaQuery.of(context).size.width * 0.1,
-                              height: MediaQuery.of(context).size.height * 0.1,
-                              child: FlatButton(
-                                child: Icon(
-                                  Icons.arrow_back_ios,
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                shape: CircleBorder(),
-                              )),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            height: MediaQuery.of(context).size.height * 0.1,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Pelanggaran Santri",
-                              style: TextStyle(
-                                  fontFamily: "Avenir",
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                          Padding(
+                            padding: EdgeInsets.only(top: queryData.size.height/50.0),
+                            child: FlatButton(
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.green[800].withOpacity(0.3),
+                              child: Icon(
+                                Icons.arrow_back_ios_rounded,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              shape: CircleBorder(),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: queryData.size.height/27.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("PELANGGARAN ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                                  Text("SANTRI", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                              ],
                             ),
                           ),
                         ],

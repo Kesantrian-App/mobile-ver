@@ -36,15 +36,18 @@ class _IzinGadgetState extends State<IzinGadget> {
   }
 
   Widget buildPageView() {
-    return PageView(
-      controller: pageController,
-      onPageChanged: (index) {
-        pageChanged(index);
-      },
-      children: <Widget>[
-        Laptop(),
-        Handphone()
-      ],
+    return ScrollConfiguration(
+      behavior: MyBehavior(),
+      child: PageView(
+        controller: pageController,
+        onPageChanged: (index) {
+          pageChanged(index);
+        },
+        children: <Widget>[
+          Laptop(),
+          Handphone()
+        ],
+      ),
     );
   }
 
@@ -228,6 +231,8 @@ class _LaptopState extends State<Laptop> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.4,
                   child: RawMaterialButton(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.grey.withOpacity(0.3),
                     onPressed: (){
                       Navigator.pop(context);
                     },
@@ -373,6 +378,8 @@ class _HandphoneState extends State<Handphone> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.4,
                   child: RawMaterialButton(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.grey.withOpacity(0.3),
                     onPressed: (){
                       Navigator.pop(context);
                     },

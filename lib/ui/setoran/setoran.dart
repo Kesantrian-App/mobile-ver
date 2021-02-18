@@ -27,23 +27,22 @@ class _SetoranState extends State<Setoran> {
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                FlatButton(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.grey.withOpacity(0.3),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Icon(Icons.arrow_back_ios, color: Colors.grey),
+                Padding(
+                  padding: EdgeInsets.only(top: queryData.size.width/50.0),
+                  child: FlatButton(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.grey.withOpacity(0.3),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.arrow_back_ios_rounded, color: Colors.grey),
+                    shape: CircleBorder(),
                   ),
-                  shape: CircleBorder(),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 10.0),
+                  padding: EdgeInsets.only(top: 5.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -52,22 +51,71 @@ class _SetoranState extends State<Setoran> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: queryData.size.width/50.0),
+                  child: FlatButton(
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.grey.withOpacity(0.3),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/setoranhistory');
+                    },
+                    child: Icon(Icons.history_rounded, color: Colors.grey),
+                    shape: CircleBorder(),
+                  ),
+                ),
                 // Padding(
                 //   padding: EdgeInsets.only(right: 65.0),
                 //   child: Text("tes", style: TextStyle(color: Colors.white))
                 // ),
-                FlatButton (
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/setoranhistory');
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 0),
-                    child: Icon(Icons.history, color: Colors.grey),
-                  ),
-                  shape: CircleBorder(),
-                ),
               ],
             ),
+            // Container(
+            //   width: MediaQuery.of(context).size.width * 1,
+            //   height: MediaQuery.of(context).size.height * 0.05,
+            //     child: Stack(
+            //       children: [
+            //         Container(
+            //           width: MediaQuery.of(context).size.width * 1,
+            //           height: MediaQuery.of(context).size.height * 0.05,
+            //           alignment: Alignment.centerLeft,
+            //           child: FlatButton(
+            //             splashColor: Colors.transparent,
+            //             highlightColor: Colors.grey.withOpacity(0.3),
+            //             onPressed: () {
+            //               Navigator.pop(context);
+            //             },
+            //             child: Icon(Icons.arrow_back_ios, color: Colors.grey),
+            //             shape: CircleBorder(),
+            //           ),
+            //         ),
+            //         Container(
+            //           width: MediaQuery.of(context).size.width * 1,
+            //           height: MediaQuery.of(context).size.height * 0.05,
+            //           alignment: Alignment.center,
+            //           child: Row(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               Text("PINJAM ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.black, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+            //               Text("LAPTOP", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.black, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+            //             ],
+            //           ),
+            //         ),
+            //         Container(
+            //           width: MediaQuery.of(context).size.width * 1,
+            //           height: MediaQuery.of(context).size.height * 0.05,
+            //           alignment: Alignment.centerRight,
+            //           child: FlatButton(
+            //             splashColor: Colors.transparent,
+            //             highlightColor: Colors.grey.withOpacity(0.3),
+            //             onPressed: () {
+            //               Navigator.pushNamed(context, '/setoranhistory');
+            //             },
+            //             child: Icon(Icons.history_rounded, color: Colors.grey),
+            //             shape: CircleBorder(),
+            //           ),
+            //         ),
+            //       ],
+            //     )),
             Container(
               margin: EdgeInsets.all(20.0),
               decoration: BoxDecoration(

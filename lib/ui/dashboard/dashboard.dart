@@ -9,490 +9,499 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+    MediaQueryData queryData;
+    queryData = MediaQuery.of(context);
+
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(left: 30, right: 30, top: 50, bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "AHLAN WA SAHLAN,",
-                        style: TextStyle(
-                            color: HexColor("#2ecc71"),
-                            fontFamily: "Avenir",
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "Arrizal Bintang",
-                        style: TextStyle(
-                            color: HexColor("#2ecc71"),
-                            fontFamily: "Avenir",
-                            fontSize: 23,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text("Apa yang Anda pikirkan hari ini?",
-                          style: TextStyle(
-                              color: HexColor("#2ecc71"),
-                              fontFamily: "Avenir",
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500)),
-                    ],
+      body: ScrollConfiguration(
+        behavior: MyBehavior(),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                height: queryData.size.height*0.3,
+                padding: EdgeInsets.only(left: 30, right: 30),
+                alignment: Alignment.bottomCenter,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/image/accountbg.png"),
+                    fit: BoxFit.cover
                   ),
-                ),
-                // ProfileButton(),
-                // GestureDetector(
-                //   onTap: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(builder: (context) => Akun()),
-                //     );
-                //   },
-                //   child: Container(
-                //     width: MediaQuery.of(context).size.width * 0.18,
-                //     height: MediaQuery.of(context).size.height * 0.1,
-                //     decoration: BoxDecoration(
-                //       border: Border.all(color: HexColor("#2ecc71"), width: 3),
-                //       borderRadius: BorderRadius.all(Radius.circular(300.0)),
-                //     ),
-                //     padding: EdgeInsets.all(3.0),
-                //     child: Container(
-                //       decoration: BoxDecoration(
-                //         image: DecorationImage(
-                //             fit: BoxFit.cover,
-                //             image: AssetImage("assets/image/akun2.jpg")),
-                //         borderRadius: BorderRadius.all(Radius.circular(300.0)),
-                //         color: Colors.redAccent,
-                //       ),
-                //     ),
-                //   ),
-                // )
-                BouncingWidget(
-                  duration: Duration(milliseconds: 100),
-                  scaleFactor: 1,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Akun()),
-                    );
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.2,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: HexColor("#2ecc71"), width: 3),
-                      shape: BoxShape.circle,
-                    ),
-                    padding: EdgeInsets.all(3.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage("assets/image/akun2.jpg")),
-                        color: Colors.redAccent,
-                      ),
-                    ),
-                  ),
-                ),
-                // Container(
-                //   decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //         fit: BoxFit.cover,
-                //         image: AssetImage("assets/image/akun2.jpg")),
-                //     borderRadius: BorderRadius.all(Radius.circular(300.0)),
-                //     color: Colors.redAccent,
-                //   ),
-                // ),
-              ],
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width * 1,
-            height: MediaQuery.of(context).size.height * 0.785,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)),
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [HexColor("#2ecc71"), HexColor("#469a69")])),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // BARIS PERTAMA
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // SETORAN HAFALAN
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50)),
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [HexColor("#2ecc71"), HexColor("#2ab967")])),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      margin: EdgeInsets.only(left: 10),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          RaisedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/setoran');
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: EdgeInsets.all(0.0),
-                              elevation: 5.0,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    "assets/icons/note.png"))),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          SizedBox(height: 15),
+                          SizedBox(
+                            height: queryData.size.height/85,
+                          ),
                           Text(
-                            "Setoran Hafalan",
+                            "AHLAN WA SAHLAN,",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Avenir",
-                                fontSize: 12,
+                                fontSize: 13,
+                                letterSpacing: 2,
                                 fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ),
-                    // HUTANG HAFALAN
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      child: Column(
-                        children: [
-                          RaisedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/hutangsetor');
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: EdgeInsets.all(0.0),
-                              elevation: 5.0,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    "assets/icons/hutang.png"))),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          SizedBox(height: 15),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
-                            "Hutang Hafalan",
+                            "Arrizal Bintang",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: "Avenir",
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          )
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text("Apa yang Anda pikirkan hari ini?",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: "Avenir",
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ),
-                    // PERIZINAN GADGET
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      margin: EdgeInsets.only(right: 10),
-                      child: Column(
-                        children: [
-                          RaisedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/izingadget');
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: EdgeInsets.all(0.0),
-                              elevation: 5.0,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    "assets/icons/gadget.png"))),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          SizedBox(height: 15),
-                          Text(
-                            "Perizinan Gadget",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Avenir",
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
+                    // ProfileButton(),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(builder: (context) => Akun()),
+                    //     );
+                    //   },
+                    //   child: Container(
+                    //     width: MediaQuery.of(context).size.width * 0.18,
+                    //     height: MediaQuery.of(context).size.height * 0.1,
+                    //     decoration: BoxDecoration(
+                    //       border: Border.all(color: HexColor("#2ecc71"), width: 3),
+                    //       borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                    //     ),
+                    //     padding: EdgeInsets.all(3.0),
+                    //     child: Container(
+                    //       decoration: BoxDecoration(
+                    //         image: DecorationImage(
+                    //             fit: BoxFit.cover,
+                    //             image: AssetImage("assets/image/akun2.jpg")),
+                    //         borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                    //         color: Colors.redAccent,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
+                    BouncingWidget(
+                      duration: Duration(milliseconds: 100),
+                      scaleFactor: 1,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Akun()),
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white, width: 3),
+                          shape: BoxShape.circle,
+                        ),
+                        padding: EdgeInsets.all(3.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage("assets/image/akun2.jpg")),
+                            color: Colors.redAccent,
+                          ),
+                        ),
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                // BARIS KEDUA
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // PELANGGARAN DAN POIN SISWA
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      margin: EdgeInsets.only(left: 10),
-                      child: Column(
-                        children: [
-                          RaisedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/pelanggaran');
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: EdgeInsets.all(0.0),
-                              elevation: 5.0,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    "assets/icons/penalty.png"))),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          SizedBox(height: 15),
-                          Text(
-                            "Pelanggaran dan Poin Siswa",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Avenir",
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ),
-                    // LAUNDRY BULANAN
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      height: MediaQuery.of(context).size.width * 0.4,
-                      child: Column(
-                        children: [
-                          RaisedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/laundry');
-                              },
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20.0)),
-                              padding: EdgeInsets.all(0.0),
-                              elevation: 5.0,
-                              child: Ink(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  height:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        height:
-                                            MediaQuery.of(context).size.width *
-                                                0.18,
-                                        decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: AssetImage(
-                                                    "assets/icons/laundry.png"))),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
-                          SizedBox(height: 15),
-                          Text(
-                            "Laundry Bulanan",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: "Avenir",
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ),
-                    ),
-                    // LAPORAN MURID
                     // Container(
-                    //   width: MediaQuery.of(context).size.width * 0.3,
-                    //   height: MediaQuery.of(context).size.width * 0.4,
-                    //   margin: EdgeInsets.only(right: 10),
-                    //   child: Column(
-                    //     children: [
-                    //       RaisedButton(
-                    //           onPressed: () {},
-                    //           shape: RoundedRectangleBorder(
-                    //               borderRadius: BorderRadius.circular(20.0)),
-                    //           padding: EdgeInsets.all(0.0),
-                    //           elevation: 5.0,
-                    //           child: Ink(
-                    //             decoration: BoxDecoration(
-                    //                 color: Colors.white,
-                    //                 borderRadius: BorderRadius.circular(20)),
-                    //             child: Container(
-                    //               width:
-                    //                   MediaQuery.of(context).size.width * 0.25,
-                    //               height:
-                    //                   MediaQuery.of(context).size.width * 0.25,
-                    //               child: Column(
-                    //                 mainAxisAlignment: MainAxisAlignment.center,
-                    //                 children: [
-                    //                   Container(
-                    //                     width:
-                    //                         MediaQuery.of(context).size.width *
-                    //                             0.18,
-                    //                     height:
-                    //                         MediaQuery.of(context).size.width *
-                    //                             0.18,
-                    //                     decoration: BoxDecoration(
-                    //                         image: DecorationImage(
-                    //                             fit: BoxFit.cover,
-                    //                             image: AssetImage(
-                    //                                 "assets/icons/laporan.png"))),
-                    //                   )
-                    //                 ],
-                    //               ),
-                    //             ),
-                    //           )),
-                    //       SizedBox(height: 15),
-                    //       Text(
-                    //         "Laporan Murid",
-                    //         style: TextStyle(
-                    //             color: Colors.white,
-                    //             fontFamily: "Avenir",
-                    //             fontSize: 12,
-                    //             fontWeight: FontWeight.w500),
-                    //         textAlign: TextAlign.center,
-                    //       )
-                    //     ],
+                    //   decoration: BoxDecoration(
+                    //     image: DecorationImage(
+                    //         fit: BoxFit.cover,
+                    //         image: AssetImage("assets/image/akun2.jpg")),
+                    //     borderRadius: BorderRadius.all(Radius.circular(300.0)),
+                    //     color: Colors.redAccent,
                     //   ),
                     // ),
                   ],
                 ),
-              ],
-            ),
-          )
-        ]),
-      ),
+              ),
+            Container(
+              height: queryData.size.height*0.7,
+              alignment: Alignment.topCenter,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/image/account2bg.png"),
+                  fit: BoxFit.cover
+                )
+              ),
+              child: ScrollConfiguration(
+                behavior: MyBehavior(),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      // BARIS PERTAMA
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: MediaQuery.of(context).size.width * 0.25,
+                        margin: EdgeInsets.only(top: queryData.size.height/25),
+                        child: RaisedButton(   
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/setoran');
+                          },
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0)),
+                          padding: EdgeInsets.all(0.0),
+                          child: Ink(
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  stops: [0.68, 0.68],
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [HexColor("#2ecc71"), Colors.white]
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  alignment: Alignment.centerLeft,
+                                            fit: BoxFit.contain,
+                                            image: AssetImage(
+                                                "assets/icons/setoranicon.png"))),
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              padding: EdgeInsets.only(right: queryData.size.width / 20),
+                              width:
+                                  MediaQuery.of(context).size.width * 0.8,
+                              height:
+                                  MediaQuery.of(context).size.width * 0.25,
+                              child: RichText(
+                                textAlign: TextAlign.end,
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: "Setoran ".toUpperCase(),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "Avenir",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                    ),
+                                    TextSpan(
+                                      text: "Hafalan\n".toUpperCase(),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "Avenir",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                    ),
+                                    TextSpan(
+                                      text: "Al-Qur'an".toUpperCase(),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "Avenir",
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500),
+                                    ),
+                                  ]
+                                )
+                              ),
+                            ),
+                          )
+                        ),
+                      ),
+                      // BARIS KEDUA
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: queryData.size.height/25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // HUTANG HAFALAN
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.45,
+                              height: MediaQuery.of(context).size.width * 0.35,
+                              child: Column(
+                                children: [
+                                  RaisedButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, '/hutangsetor');
+                                      },
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20.0)),
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(20),
+                                            image: DecorationImage(
+                                                        fit: BoxFit.contain,
+                                                        image: AssetImage(
+                                                            "assets/icons/hutang.png"))),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.of(context).size.width * 0.34,
+                                          height:
+                                              MediaQuery.of(context).size.width * 0.25,
+                                        ),
+                                      )),
+                                  Spacer(),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      RichText(
+                                        textAlign: TextAlign.center,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: "Hutang ".toUpperCase(),
+                                              style: TextStyle(
+                                                color: HexColor("#2ab967"),
+                                                fontFamily: "Avenir",
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text: "Hafalan".toUpperCase(),
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: "Avenir",
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500),
+                                            ),
+                                          ]
+                                        )
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                            // PERIZINAN GADGET
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.45,
+                              height: MediaQuery.of(context).size.width * 0.35,
+                              child: Column(
+                                children: [
+                                  RaisedButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, '/izingadget');
+                                      },
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20.0)),
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(20),
+                                            image: DecorationImage(
+                                                        fit: BoxFit.contain,
+                                                        image: AssetImage(
+                                                            "assets/icons/gadget.png"))),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.of(context).size.width * 0.34,
+                                          height:
+                                              MediaQuery.of(context).size.width * 0.25,
+                                        ),
+                                      )),
+                                  Spacer(),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      RichText(
+                                        textAlign: TextAlign.center,
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: "Perizinan ".toUpperCase(),
+                                              style: TextStyle(
+                                                color: HexColor("#2ab967"),
+                                                fontFamily: "Avenir",
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.bold),
+                                            ),
+                                            TextSpan(
+                                              text: "Gadget".toUpperCase(),
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: "Avenir",
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500),
+                                            ),
+                                          ]
+                                        )
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // BARIS KETIGA
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // PELANGGARAN DAN POIN SISWA
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.45,
+                            height: MediaQuery.of(context).size.width * 0.4,
+                            child: Column(
+                              children: [
+                                RaisedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/pelanggaran');
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0)),
+                                    padding: EdgeInsets.all(0.0),
+                                    child: Ink(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(20),
+                                          image: DecorationImage(
+                                                      fit: BoxFit.contain,
+                                                      image: AssetImage(
+                                                          "assets/icons/penalty.png"))),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width * 0.34,
+                                        height:
+                                            MediaQuery.of(context).size.width * 0.25,
+                                      ),
+                                    )),
+                                Spacer(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: "Pelanggaran &\n".toUpperCase(),
+                                            style: TextStyle(
+                                              color: HexColor("#2ab967"),
+                                              fontFamily: "Avenir",
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: "POIN SISWA".toUpperCase(),
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontFamily: "Avenir",
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500),
+                                          ),
+                                        ]
+                                      )
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                          // LAUNDRY BULANAN
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.45,
+                            height: MediaQuery.of(context).size.width * 0.4,
+                            child: Column(
+                              children: [
+                                RaisedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/laundry');
+                                    },
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0)),
+                                    padding: EdgeInsets.all(0.0),
+                                    child: Ink(
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(20),
+                                          image: DecorationImage(
+                                                      fit: BoxFit.contain,
+                                                      image: AssetImage(
+                                                          "assets/icons/laundry.png"))),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width * 0.34,
+                                        height:
+                                            MediaQuery.of(context).size.width * 0.25,
+                                      ),
+                                    )),
+                                Spacer(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: "Laundry ".toUpperCase(),
+                                            style: TextStyle(
+                                              color: HexColor("#2ab967"),
+                                              fontFamily: "Avenir",
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold),
+                                          ),
+                                          TextSpan(
+                                            text: "Bulanan\n".toUpperCase(),
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontFamily: "Avenir",
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500),
+                                          ),
+                                          TextSpan(
+                                            text: "".toUpperCase(),
+                                            style: TextStyle(
+                                              color: HexColor("#2ab967"),
+                                              fontFamily: "Avenir",
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold),
+                                          ),
+                                        ]
+                                      )
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              )
+            )
+          ]),
+        ),
+      )
     );
   }
 }
@@ -573,5 +582,13 @@ class _ProfileButtonState extends State<ProfileButton> with SingleTickerProvider
 
   void _onTapUp(TapUpDetails details) {
     _animationController.reverse();
+  }
+}
+
+class MyBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
   }
 }

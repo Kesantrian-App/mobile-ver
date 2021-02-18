@@ -7,13 +7,11 @@ import 'package:fdottedline/fdottedline.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:bouncing_widget/bouncing_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:ff_navigation_bar/ff_navigation_bar.dart';
 
 // PACKAGE
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+part 'constants.dart';
 // Homepage
 // part 'startpage.dart';
 
