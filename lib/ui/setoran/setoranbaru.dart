@@ -26,70 +26,71 @@ class _SetoranBaruState extends State<SetoranBaru> {
     queryData = MediaQuery.of(context);
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: -65,
-                left: 0,
-                child: Container(
-                      width: MediaQuery.of(context).size.width * 0.85,
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("assets/image/bglaptopui.png")
-                        )
+      body: ScrollConfiguration(
+        behavior: MyBehavior(),
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white
+            ),
+            child: Stack(
+              children: [
+                Positioned(
+                  bottom: -65,
+                  left: 0,
+                  child: Container(
+                        width: MediaQuery.of(context).size.width * 0.85,
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/image/bglaptopui.png")
+                          )
+                        ),
                       ),
-                    ),
-              ),
-              Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 30.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FlatButton (
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(Icons.arrow_back_ios_rounded, color: HexColor("#439f6a"), size: 15),
-                          shape: CircleBorder(),
-                          splashColor: Colors.transparent,
-                          highlightColor: HexColor("#2ECC71").withOpacity(0.4),
-                          color: HexColor("#2ECC71").withOpacity(0.2),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 10.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5.0),
-                                child: Icon(Icons.add_circle, color: HexColor("2ECC71")),
-                              ),
-                              Text("SETORAN ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: HexColor("2ECC71"), fontWeight: FontWeight.bold, letterSpacing: -0.5)),
-                              Text("BARU", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: HexColor("2ECC71"), fontWeight: FontWeight.w500, letterSpacing: -0.5)),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: 65.0),
-                          child: Text("tes", style: TextStyle(color: Colors.white))
-                        ),
-                      ],
-                    ),
-                  ),
-                  Column(
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 1,
+                  height: MediaQuery.of(context).size.height * 1,
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
+                      Container(
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height/25.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            FlatButton (
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back_ios_rounded, color: HexColor("#439f6a"), size: 15),
+                              shape: CircleBorder(),
+                              splashColor: Colors.transparent,
+                              highlightColor: HexColor("#2ECC71").withOpacity(0.4),
+                              color: HexColor("#2ECC71").withOpacity(0.2),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 5.0),
+                                    child: Icon(Icons.add_circle, color: HexColor("2ECC71")),
+                                  ),
+                                  Text("SETORAN ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: HexColor("2ECC71"), fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                                  Text("BARU", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: HexColor("2ECC71"), fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 65.0),
+                              child: Text("tes", style: TextStyle(color: Colors.white))
+                            ),
+                          ],
+                        ),
+                      ),
                       // Surat
                       Padding(
                         padding: EdgeInsets.symmetric(
@@ -172,6 +173,7 @@ class _SetoranBaruState extends State<SetoranBaru> {
                                       border: OutlineInputBorder(),
                                       counterText: ""),
                                   maxLength: 2,
+                                  keyboardType: TextInputType.number,
                                   controller: ayatAwal,
                                   onChanged: (text) {
                                     nilaiAyat = text;
@@ -204,6 +206,7 @@ class _SetoranBaruState extends State<SetoranBaru> {
                                       border: OutlineInputBorder(),
                                       counterText: ""),
                                   maxLength: 2,
+                                  keyboardType: TextInputType.number,
                                   controller: ayatAkhir,
                                   onChanged: (text) {
                                     nilaiAyat = text;
@@ -324,7 +327,7 @@ class _SetoranBaruState extends State<SetoranBaru> {
                           ),
                         ),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                      SizedBox(height: MediaQuery.of(context).size.height / 70),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: queryData.size.height/18.0),
                         child: Row(
@@ -440,12 +443,12 @@ class _SetoranBaruState extends State<SetoranBaru> {
                       )
                     ],
                   ),
-                ],
-              ),
-            ]
+                ),
+              ]
+            ),
           ),
         ),
-      ),
+      )
     );
   }
 }
