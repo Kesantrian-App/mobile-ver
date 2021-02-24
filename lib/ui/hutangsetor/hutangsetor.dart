@@ -24,36 +24,37 @@ class _HutangSetorState extends State<HutangSetor> {
                         end: Alignment.bottomLeft,
                         colors: [HexColor("#2ECC71"), HexColor("#82caa0")])),
                 padding: EdgeInsets.only(top: queryData.size.height/25),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: queryData.size.width/50.0),
-                          child: FlatButton(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.green[800].withOpacity(0.3),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
-                            shape: CircleBorder(),
-                          ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 1,
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Hutang ".toUpperCase(), style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                          Text("Hafalan".toUpperCase(), style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 1,
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      alignment: Alignment.centerLeft,
+                      child: FlatButton(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.green[800].withOpacity(0.3),
+                        child: Icon(
+                          Icons.arrow_back_ios_rounded,
+                          color: Colors.white,
+                          size: 20,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("HUTANG ", style: TextStyle(fontSize: 20, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
-                                Text("HAFALAN", style: TextStyle(fontSize: 20, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
-                            ],
-                          ),
-                        ),
-                      ],
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        shape: CircleBorder(),
+                      ),
                     ),
                   ],
                 )),

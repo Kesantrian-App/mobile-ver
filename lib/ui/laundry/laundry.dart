@@ -35,44 +35,49 @@ class _LaundryState extends State<Laundry> {
             children: [
               Container(
                 padding: EdgeInsets.only(top: 35.0),
-                width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 0.14,
+                width: queryData.size.width * 1,
+                height: queryData.size.height * 0.11,
                 decoration: BoxDecoration(
                   color: HexColor('#2ECC71')
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Stack(
                   children: [
-                    FlatButton (
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.green[800].withOpacity(0.3),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
-                      shape: CircleBorder(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: queryData.size.height/60.0),
+                    Container(
+                      width: queryData.size.width * 1,
+                      height: queryData.size.height * 0.05,
+                      alignment: Alignment.center,
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("LAUNDRY ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
-                            Text("BULANAN", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                          Text("Laundry ".toUpperCase(), style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                          Text("Bulanan".toUpperCase(), style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 65.0),
-                      child: Text("tes", style: TextStyle(color: HexColor("#2ECC71")))
+                    Container(
+                      width: queryData.size.width * 1,
+                      height: queryData.size.height * 0.05,
+                      alignment: Alignment.centerLeft,
+                      child: FlatButton(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.green[800].withOpacity(0.3),
+                        child: Icon(
+                          Icons.arrow_back_ios_rounded,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        shape: CircleBorder(),
+                      ),
                     ),
                   ],
-                ),
+                )
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-                width: MediaQuery.of(context).size.width * 1,
+                width: queryData.size.width * 1,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20.0),
@@ -93,7 +98,7 @@ class _LaundryState extends State<Laundry> {
                         children: [
                           Container(
                             margin: EdgeInsets.symmetric(vertical: 30.0),
-                            width: MediaQuery.of(context).size.width * 0.8,
+                            width: queryData.size.width * 0.8,
                             padding: EdgeInsets.only(left: 20),
                             decoration: BoxDecoration(
                               color: Colors.grey[100],
@@ -117,7 +122,7 @@ class _LaundryState extends State<Laundry> {
                               items: _listBulan.map((value) {
                                 return DropdownMenuItem(
                                   child: Container(
-                                    width: MediaQuery.of(context).size.width *
+                                    width: queryData.size.width *
                                         0.3,
                                     child: Text(value, style: TextStyle(
                                       fontSize: 16,
@@ -167,8 +172,8 @@ class _LaundryState extends State<Laundry> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
+                            width: queryData.size.width * 0.2,
+                            height: queryData.size.height * 0.2,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage("assets/icons/laundry.png")
@@ -177,8 +182,8 @@ class _LaundryState extends State<Laundry> {
                           ),
                           Container(
                             alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height: MediaQuery.of(context).size.width * 0.2,
+                            width: queryData.size.width * 0.5,
+                            height: queryData.size.width * 0.2,
                             child: Text("Persentase diatas menentukan berapa persen laundry yang telah dipakai dalam waktu sebulan", style: TextStyle(
                               fontSize: 12, fontFamily: "Avenir", fontWeight: FontWeight.w500, color: Colors.black
                             )),

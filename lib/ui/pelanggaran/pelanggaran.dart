@@ -307,43 +307,40 @@ class _PelanggaranState extends State<Pelanggaran> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: queryData.size.height/40.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Stack(
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: queryData.size.height/50.0),
-                            child: FlatButton(
-                              splashColor: Colors.transparent,
-                              highlightColor: Colors.green[800].withOpacity(0.3),
-                              child: Icon(
-                                Icons.arrow_back_ios_rounded,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              shape: CircleBorder(),
-                            ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 0.10,
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("PELANGGARAN ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
+                            Text("SANTRI", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: MediaQuery.of(context).size.height * 0.10,
+                        alignment: Alignment.centerLeft,
+                        child: FlatButton(
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.green[800].withOpacity(0.3),
+                          child: Icon(
+                            Icons.arrow_back_ios_rounded,
+                            color: Colors.white,
+                            size: 20,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(top: queryData.size.height/27.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("PELANGGARAN ", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: -0.5)),
-                                  Text("SANTRI", style: TextStyle(fontSize: 18, fontFamily: "Avenir", color: Colors.white, fontWeight: FontWeight.w500, letterSpacing: -0.5)),
-                              ],
-                            ),
-                          ),
-                        ],
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          shape: CircleBorder(),
+                        ),
                       ),
                     ],
-                  ),
+                  )
                 )
               ],
             )

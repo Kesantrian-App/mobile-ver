@@ -1,4 +1,4 @@
-part of '../uis.dart';
+part of 'uis.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -287,7 +287,7 @@ class _DashboardState extends State<Dashboard> {
                                                 color: Colors.black,
                                                 fontFamily: "Avenir",
                                                 fontSize: 12,
-                                                fontWeight: FontWeight.w500),
+                                                fontWeight: FontWeight.bold),
                                             ),
                                           ]
                                         )
@@ -347,7 +347,7 @@ class _DashboardState extends State<Dashboard> {
                                                 color: Colors.black,
                                                 fontFamily: "Avenir",
                                                 fontSize: 12,
-                                                fontWeight: FontWeight.w500),
+                                                fontWeight: FontWeight.bold),
                                             ),
                                           ]
                                         )
@@ -414,7 +414,7 @@ class _DashboardState extends State<Dashboard> {
                                               color: Colors.black,
                                               fontFamily: "Avenir",
                                               fontSize: 12,
-                                              fontWeight: FontWeight.w500),
+                                              fontWeight: FontWeight.bold),
                                           ),
                                         ]
                                       )
@@ -474,7 +474,7 @@ class _DashboardState extends State<Dashboard> {
                                               color: Colors.black,
                                               fontFamily: "Avenir",
                                               fontSize: 12,
-                                              fontWeight: FontWeight.w500),
+                                              fontWeight: FontWeight.bold),
                                           ),
                                           TextSpan(
                                             text: "".toUpperCase(),

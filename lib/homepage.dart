@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kesantrian_app/colors.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import 'ui/uis.dart';
@@ -10,11 +9,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Kesantrian',
+        title: 'Santri',
         theme: ThemeData(
-            scaffoldBackgroundColor: kBackgorundColor,
-            primaryColor: HexColor("#fab838"),
-            textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+            scaffoldBackgroundColor: Colors.white,
+            primaryColor: HexColor("#2ECC71"),
+            textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.black),
             visualDensity: VisualDensity.adaptivePlatformDensity),
         initialRoute: '/',
         routes: {

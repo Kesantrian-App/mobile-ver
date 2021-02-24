@@ -119,8 +119,9 @@ class _AkunState extends State<Akun> {
                               alignment: Alignment.center,
                               child: Text("Arrizal Bintang Ramadhan".toUpperCase(),
                                   style: TextStyle(
+                                      color: Colors.black,
                                       fontFamily: "Avenir",
-                                      fontSize: queryData.size.width/21,
+                                      fontSize: queryData.size.width/25,
                                       fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
@@ -266,6 +267,7 @@ class _AkunState extends State<Akun> {
                                     style: TextStyle(
                                         fontFamily: "Avenir",
                                         fontSize: 15,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold)),
                                 SizedBox(height: 20),
                                 Text("Email",
@@ -279,6 +281,7 @@ class _AkunState extends State<Akun> {
                                     style: TextStyle(
                                         fontFamily: "Avenir",
                                         fontSize: 15,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold)),
                                 SizedBox(height: 20),
                                 Text("Nama Ayah",
@@ -292,6 +295,7 @@ class _AkunState extends State<Akun> {
                                     style: TextStyle(
                                         fontFamily: "Avenir",
                                         fontSize: 15,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold)),
                               ],
                             ),
@@ -312,6 +316,7 @@ class _AkunState extends State<Akun> {
                                     style: TextStyle(
                                         fontFamily: "Avenir",
                                         fontSize: 15,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold)),
                                 SizedBox(height: 20),
                                 Text("Tahun Ajaran",
@@ -325,6 +330,7 @@ class _AkunState extends State<Akun> {
                                     style: TextStyle(
                                         fontFamily: "Avenir",
                                         fontSize: 15,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold)),
                                 SizedBox(height: 20),
                                 Text("Nama Ibu",
@@ -338,6 +344,7 @@ class _AkunState extends State<Akun> {
                                     style: TextStyle(
                                         fontFamily: "Avenir",
                                         fontSize: 15,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.bold)),
                               ],
                             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kesantrian_app/homepage.dart';
+import 'package:kesantrian_app/uikesantrian/uiskesantrian.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -21,25 +22,34 @@ class _IntroState extends State<Intro> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyApp()
+      home: Container(
+        height: MediaQuery.of(context).size.height * 1,
+        width: MediaQuery.of(context).size.width * 1,
+        decoration: BoxDecoration(color: Colors.white),
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardKes()));
+              },
+              color: Colors.blue,
+              child: Text("KESANTRIAN", style: TextStyle(color: Colors.white)),
+            ),
+            RaisedButton(
+              onPressed: (){
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp()),
+                        );
+              },
+              color: Colors.green,
+              child: Text("SANTRI", style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        ),
+      )
     );
   }
 }
-
-// Container(
-//         decoration: BoxDecoration(
-//           image: DecorationImage(
-//             image: AssetImage("assets/logo/bgsplash.png"),
-//             fit: BoxFit.cover
-//           )
-//         ),
-//         child: AnimatedSplashScreen(
-//           splash: Image.asset("assets/logo/santri.png"),
-//           nextScreen: MyApp(),
-//           splashIconSize: 80,
-//           curve: Curves.fastOutSlowIn,
-//           splashTransition: SplashTransition.scaleTransition,
-//           duration: 400,
-//           backgroundColor: HexColor("#2ECC71").withOpacity(0.5),
-//         ),
-//       ),

@@ -12,11 +12,9 @@ import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 part 'constants.dart';
-// Homepage
-// part 'startpage.dart';
 
-// Navigation Bar
-part 'dashboard/dashboard.dart';
+// Homepage
+part 'dashboard.dart';
 part 'akun/akun.dart';
 
 // Pilihan Santri
