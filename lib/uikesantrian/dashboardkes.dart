@@ -25,7 +25,11 @@ class _DashboardKesState extends State<DashboardKes> {
                     width: queryData.size.width * 1,
                     height: queryData.size.height * 0.3,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: HexColor("#2ECC71"),
+                      image: DecorationImage(
+                        image: AssetImage("assets/image/accountbg.png"),
+                        fit: BoxFit.cover
+                      ),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -42,7 +46,7 @@ class _DashboardKesState extends State<DashboardKes> {
                                   Text(
                                       "AHLAN WA SAHLAN,",
                                       style: TextStyle(
-                                          color: HexColor("#2ECC71"),
+                                          color: Colors.white,
                                           fontFamily: "Avenir",
                                           fontSize: queryData.size.width/25,
                                           letterSpacing: 2,
@@ -54,7 +58,7 @@ class _DashboardKesState extends State<DashboardKes> {
                                     Text(
                                       "Ustadz Ahlal",
                                       style: TextStyle(
-                                          color: HexColor("#2ECC71"),
+                                          color: Colors.white,
                                           fontFamily: "Avenir",
                                           fontSize: queryData.size.width/12,
                                           fontWeight: FontWeight.bold),
@@ -64,7 +68,7 @@ class _DashboardKesState extends State<DashboardKes> {
                                     ),
                                     Text("Apa yang Anda pikirkan hari ini?",
                                         style: TextStyle(
-                                            color: HexColor("#2ECC71"),
+                                            color: Colors.white,
                                             fontFamily: "Avenir",
                                             fontSize: queryData.size.width/30,
                                             fontWeight: FontWeight.bold)),
@@ -78,7 +82,7 @@ class _DashboardKesState extends State<DashboardKes> {
                                   width: MediaQuery.of(context).size.width * 0.2,
                                   height: MediaQuery.of(context).size.height * 0.1,
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: HexColor("#2ECC71"), width: 3),
+                                    border: Border.all(color: Colors.white, width: 3),
                                     shape: BoxShape.circle,
                                   ),
                                   padding: EdgeInsets.all(3.0),
@@ -108,7 +112,7 @@ class _DashboardKesState extends State<DashboardKes> {
                                 topLeft: Radius.circular(50.0),
                                 topRight: Radius.circular(50.0)
                               ),
-                              color: HexColor("#2ECC71")
+                              color: Colors.white
                             ),
                           ),
                         )
@@ -119,7 +123,7 @@ class _DashboardKesState extends State<DashboardKes> {
                     width: queryData.size.width * 1,
                     height: queryData.size.height * 0.7,
                     decoration: BoxDecoration(
-                      color: HexColor("#2ECC71"),
+                      color: Colors.white,
                     ),
                     child: Stack(
                       children: [
@@ -139,12 +143,17 @@ class _DashboardKesState extends State<DashboardKes> {
                                         left: queryData.size.width/20,
                                         right: queryData.size.width/20,
                                         child: RaisedButton(
-                                          onPressed: () { },
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => HolaqohKes()),
+                                            );
+                                          },
                                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                                           padding: const EdgeInsets.all(0.0),
-                                          elevation: 0,
+                                          elevation: 5,
                                           child: Ink(
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                             ),
@@ -221,7 +230,15 @@ class _DashboardKesState extends State<DashboardKes> {
                                           alignment: Alignment.centerLeft,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.circular(20.0)
+                                            borderRadius: BorderRadius.circular(20.0),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey.withOpacity(0.5),
+                                                spreadRadius: 2,
+                                                blurRadius: 4,
+                                                offset: Offset(0, 3),
+                                              ),
+                                            ],
                                           ),
                                           child: Column(
                                             mainAxisAlignment: MainAxisAlignment.end,
@@ -351,7 +368,15 @@ class _DashboardKesState extends State<DashboardKes> {
                                           alignment: Alignment.centerLeft,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.circular(20.0)
+                                            borderRadius: BorderRadius.circular(20.0),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey.withOpacity(0.5),
+                                                spreadRadius: 2,
+                                                blurRadius: 4,
+                                                offset: Offset(0, 3),
+                                              ),
+                                            ],
                                           ),
                                           child: Column(
                                             mainAxisAlignment: MainAxisAlignment.end,
@@ -480,7 +505,7 @@ class _DashboardKesState extends State<DashboardKes> {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               stops: [0.1, 0.3],
-                              colors: [HexColor("#2ECC71"), HexColor("#2ECC71").withOpacity(0)]
+                              colors: [Colors.white, Colors.white.withOpacity(0)]
                             )
                           )
                         )
@@ -490,9 +515,9 @@ class _DashboardKesState extends State<DashboardKes> {
                 ],
               ),
               Positioned(
-                bottom: 20,
-                left: 20,
-                right: 20,
+                bottom: queryData.size.height/40,
+                left: queryData.size.width/15,
+                right: queryData.size.width/15,
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: queryData.size.height/80),
                   decoration: BoxDecoration(
@@ -537,9 +562,138 @@ class _DashboardKesState extends State<DashboardKes> {
                         children: [
                           RaisedButton(
                             onPressed: (){
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Peminjaman()),
+                              showDialog(
+                                context: context,
+                                builder: (context) => Material(
+                                  type: MaterialType.transparency,
+                                  child: new Container(
+                                    height: queryData.size.height*1,
+                                    width: queryData.size.width*1,
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                          bottom: queryData.size.height/14.5,
+                                          right: queryData.size.width/20,
+                                          left: queryData.size.width/20,
+                                          child: Container(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Column(
+                                                      children: [
+                                                        RaisedButton(
+                                                          onPressed: (){
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(builder: (context) => Peminjaman()),
+                                                            );
+                                                          },
+                                                          shape: CircleBorder(),
+                                                          padding: EdgeInsets.all(queryData.size.width/30),
+                                                          color: HexColor("#2ECC71"),
+                                                          child: Icon(Icons.laptop_mac, color: Colors.white, size: queryData.size.width/15),
+                                                        ),
+                                                        SizedBox(height: queryData.size.height/95),
+                                                        Text("Persetujuan\nPeminjaman".toUpperCase(), style: TextStyle(
+                                                            fontSize: queryData.size.width/30,
+                                                            fontFamily: "Avenir",
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold
+                                                          ),
+                                                          textAlign: TextAlign.center
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      children: [
+                                                        RaisedButton(
+                                                          onPressed: (){},
+                                                          shape: CircleBorder(),
+                                                          padding: EdgeInsets.all(queryData.size.width/30),
+                                                          color: HexColor("#2ECC71"),
+                                                          child: Icon(Icons.library_books_outlined, color: Colors.white, size: queryData.size.width/15),
+                                                        ),
+                                                        SizedBox(height: queryData.size.height/95),
+                                                        Text("Setor Hafalan".toUpperCase(), style: TextStyle(
+                                                            fontSize: queryData.size.width/30,
+                                                            fontFamily: "Avenir",
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold
+                                                          ),
+                                                          textAlign: TextAlign.center
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(height: queryData.size.height/30),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                  children: [
+                                                    Column(
+                                                      children: [
+                                                        RaisedButton(
+                                                          onPressed: (){},
+                                                          shape: CircleBorder(),
+                                                          padding: EdgeInsets.all(queryData.size.width/30),
+                                                          color: HexColor("#2ECC71"),
+                                                          child: Icon(Icons.contact_page, color: Colors.white, size: queryData.size.width/15),
+                                                        ),
+                                                        SizedBox(height: queryData.size.height/95),
+                                                        Text("Laporan".toUpperCase(), style: TextStyle(
+                                                            fontSize: queryData.size.width/30,
+                                                            fontFamily: "Avenir",
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold
+                                                          ),
+                                                          textAlign: TextAlign.center
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      children: [
+                                                        RaisedButton(
+                                                          onPressed: (){},
+                                                          shape: CircleBorder(),
+                                                          padding: EdgeInsets.all(queryData.size.width/30),
+                                                          color: HexColor("#2ECC71"),
+                                                          child: Icon(Icons.library_books_outlined, color: Colors.white, size: queryData.size.width/15),
+                                                        ),
+                                                        SizedBox(height: queryData.size.height/95),
+                                                        Text("Hafalan murid".toUpperCase(), style: TextStyle(
+                                                            fontSize: queryData.size.width/30,
+                                                            fontFamily: "Avenir",
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold
+                                                          ),
+                                                          textAlign: TextAlign.center
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(height: queryData.size.height/30),
+                                                RaisedButton(
+                                                  onPressed: (){
+                                                    Navigator.pop(context);
+                                                  },
+                                                  shape: CircleBorder(),
+                                                  padding: EdgeInsets.all(queryData.size.width/40),
+                                                  color: HexColor("#2ECC71"),
+                                                  child: Icon(Icons.close_rounded, color: Colors.white, size: queryData.size.width/15),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
                               );
                             },
                             shape: CircleBorder(),

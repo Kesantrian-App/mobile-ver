@@ -83,7 +83,21 @@ class _PeminjamanState extends State<Peminjaman> {
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       bottomRight: Radius.circular(30)
-                    )
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 0,
+                        offset: Offset(-10, 15),
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        spreadRadius: 2,
+                        blurRadius: 0,
+                        offset: Offset(-20, 25),
+                      ),
+                    ],
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -115,14 +129,14 @@ class _PeminjamanState extends State<Peminjaman> {
                 bottom: 0,
                 child: Container(
                   width: queryData.size.width*1,
-                  height: queryData.size.height*0.67,
+                  height: queryData.size.height*0.65,
                   child: Stack(
                     children: [
                       Positioned(
                         bottom: 0,
                         child: Container(
                           width: queryData.size.width*1,
-                          height: queryData.size.height*0.63,
+                          height: queryData.size.height*0.62,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(

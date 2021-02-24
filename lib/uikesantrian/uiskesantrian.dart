@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 // HOME
 part 'dashboardkes.dart';
+part 'holaqoh/holaqoh_kesantrian.dart';
 
 // MENU
 part 'menu/menu.dart';
