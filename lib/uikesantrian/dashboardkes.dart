@@ -91,7 +91,7 @@ class _DashboardKesState extends State<DashboardKes> {
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: AssetImage("assets/image/akun2.jpg")),
+                                          image: AssetImage("assets/icons/ustadz.png")),
                                       color: Colors.redAccent,
                                     ),
                                   ),
@@ -610,7 +610,12 @@ class _DashboardKesState extends State<DashboardKes> {
                                                     Column(
                                                       children: [
                                                         RaisedButton(
-                                                          onPressed: (){},
+                                                          onPressed: (){
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(builder: (context) => SetorHafalan()),
+                                                            );
+                                                          },
                                                           shape: CircleBorder(),
                                                           padding: EdgeInsets.all(queryData.size.width/30),
                                                           color: HexColor("#2ECC71"),
@@ -657,14 +662,19 @@ class _DashboardKesState extends State<DashboardKes> {
                                                     Column(
                                                       children: [
                                                         RaisedButton(
-                                                          onPressed: (){},
+                                                          onPressed: (){
+                                                            Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(builder: (context) => HafalanSantri()),
+                                                            );
+                                                          },
                                                           shape: CircleBorder(),
                                                           padding: EdgeInsets.all(queryData.size.width/30),
                                                           color: HexColor("#2ECC71"),
                                                           child: Icon(Icons.library_books_outlined, color: Colors.white, size: queryData.size.width/15),
                                                         ),
                                                         SizedBox(height: queryData.size.height/95),
-                                                        Text("Hafalan murid".toUpperCase(), style: TextStyle(
+                                                        Text("Hafalan santri".toUpperCase(), style: TextStyle(
                                                             fontSize: queryData.size.width/30,
                                                             fontFamily: "Avenir",
                                                             color: Colors.white,
@@ -714,76 +724,9 @@ class _DashboardKesState extends State<DashboardKes> {
                         children: [
                           RaisedButton(
                             onPressed: (){
-                              showDialog(
-                                context: context,
-                                builder: (context) => new Container(
-                                  height: queryData.size.height*1,
-                                  width: queryData.size.width*1,
-                                  child: Stack(
-                                    children: [
-                                      Positioned(
-                                        bottom: 120,
-                                        right: 30,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(20)
-                                          ),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              FlatButton(
-                                                onPressed: (){},
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Icon(Icons.person_pin, color: Colors.black.withOpacity(0.5)),
-                                                    SizedBox(width: queryData.size.width/50),
-                                                    Text("Profil saya".toUpperCase(), style: TextStyle(
-                                                      color: Colors.black.withOpacity(0.5),
-                                                      fontFamily: "Avenir",
-                                                      fontWeight: FontWeight.bold
-                                                    ),)
-                                                  ],
-                                                ),
-                                              ),
-                                              FlatButton(
-                                                onPressed: (){},
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Icon(Icons.settings_rounded, color: Colors.black.withOpacity(0.5)),
-                                                    SizedBox(width: queryData.size.width/50),
-                                                    Text("Pengaturan".toUpperCase(), style: TextStyle(
-                                                      color: Colors.black.withOpacity(0.5),
-                                                      fontFamily: "Avenir",
-                                                      fontWeight: FontWeight.bold
-                                                    ),)
-                                                  ],
-                                                ),
-                                              ),
-                                              FlatButton(
-                                                onPressed: (){},
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Icon(Icons.logout, color: Colors.black.withOpacity(0.5)),
-                                                    SizedBox(width: queryData.size.width/50),
-                                                    Text("Keluar".toUpperCase(), style: TextStyle(
-                                                      color: Colors.black.withOpacity(0.5),
-                                                      fontFamily: "Avenir",
-                                                      fontWeight: FontWeight.bold
-                                                    ),)
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                      )
-                                    ],
-                                  ),
-                                )
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ProfilKes()),
                               );
                             },
                             shape: CircleBorder(),

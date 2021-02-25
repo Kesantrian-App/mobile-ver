@@ -40,7 +40,7 @@ class _IzinHandphoneState extends State<IzinHandphone> {
   }
 
   Future<Null> _selectedTime(BuildContext context) async {
-    final TimeOfDay picked_time = await showTimePicker(
+    final TimeOfDay pickedTime = await showTimePicker(
         context: context,
         initialTime: selectedTime,
         helpText: "Masukkan Batas Waktu Peminjaman",
@@ -60,9 +60,9 @@ class _IzinHandphoneState extends State<IzinHandphone> {
           );
         });
 
-    if (picked_time != null && picked_time != selectedTime)
+    if (pickedTime != null && pickedTime != selectedTime)
       setState(() {
-        selectedTime = picked_time;
+        selectedTime = pickedTime;
       });
   }
 

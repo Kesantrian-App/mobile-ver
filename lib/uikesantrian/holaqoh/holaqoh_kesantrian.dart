@@ -13,10 +13,10 @@ class _HolaqohKesState extends State<HolaqohKes> {
 
     Color primaryColor = HexColor("#2ECC71");
 
-    String namaSantri = "Arrizal Bintang";
+    // String namaSantri = "Arrizal Bintang";
     String kelasSantri = "Kelas XII";
     String jurusan = "Rekayasa Perangkat Lunak";
-    String gambarAkun = "akun2.jpg";
+    String gambarAkun = "ustadz.png";
 
     return Scaffold(
       body: Stack(
@@ -170,7 +170,7 @@ class AkunSantri extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
-            image: AssetImage("assets/image/${gambarAkun}")
+            image: AssetImage("assets/icons/$gambarAkun")
           )
         ),
       ),

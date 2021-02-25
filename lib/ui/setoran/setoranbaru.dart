@@ -128,8 +128,7 @@ class _SetoranBaruState extends State<SetoranBaru> {
                             items: _listSurahAwal.map((value) {
                               return DropdownMenuItem(
                                 child: Container(
-                                  width: MediaQuery.of(context).size.width *
-                                      0.32,
+                                  width: MediaQuery.of(context).size.width,
                                   child: Text(value),
                                 ),
                                 value: value,
