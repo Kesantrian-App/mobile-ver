@@ -290,7 +290,7 @@ class PilihanSantri extends StatelessWidget {
             fontSize: queryData.size.width/22,
             fontFamily: "Avenir",
             fontWeight: FontWeight.bold,
-            color: Colors.black
+            color: Colors.black.withOpacity(0.8)
           )),
           subtitle: Row(
             mainAxisAlignment: MainAxisAlignment.start,

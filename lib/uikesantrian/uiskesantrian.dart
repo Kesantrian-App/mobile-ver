@@ -24,3 +24,4 @@ part 'holaqoh/setoran_hafalan.dart';
 
 // PROFIL
 part 'profil/myprofil.dart';
+part 'profil/infoprofil.dart';

@@ -178,7 +178,7 @@ class AkunSantri extends StatelessWidget {
         fontSize: queryData.size.width/18,
         fontWeight: FontWeight.bold,
         fontFamily: "Avenir",
-        color: Colors.black
+        color: HexColor("#2ab967")
       )),
       subtitle: Text(kelasSantri + " • " + jurusan, style: TextStyle(
         fontSize: queryData.size.width/32,
